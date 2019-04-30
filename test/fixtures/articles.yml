@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-04-30 16:57:59
+  article: MyText
+  accounts: one
+  accounts: one
+
+two:
+  date: 2019-04-30 16:57:59
+  article: MyText
+  accounts: two
+  accounts: two
