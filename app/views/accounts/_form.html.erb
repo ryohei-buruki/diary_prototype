@@ -1,0 +1,12 @@
+<%= form_with(model:@account, local:true)do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <%= form.label :password %>
+  <%= form.text_field :password %>
+  <%= form.label :password_confirm %>
+  <%= form.text_field :password_confirmation %>
+
+  <%= form.submit "送信"%>
+<% end %>
