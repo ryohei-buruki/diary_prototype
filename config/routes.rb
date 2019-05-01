@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :accounts
+  resources :accounts, :diaries, :articles, :comments, :comments_of_comments
+  resources :items, :only => [:index, :new, :create, :destroy]
 end

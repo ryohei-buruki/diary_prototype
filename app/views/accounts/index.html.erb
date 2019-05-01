@@ -1,1 +1,7 @@
 hello world
+
+
+<% @accounts.each do |account| %>
+  <div><%= account.name %></div>
+  <div><%= account.email %></div>
+<% end %>

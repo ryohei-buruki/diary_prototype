@@ -1,0 +1,8 @@
+<h1>Items#new</h1>
+<p>Find me in app/views/items/new.html.erb</p>
+
+<%= form_with(model:@item, local:true)do |form| %>
+  <%= form.label :item_name %>
+  <%= form.text_field :item_name %>
+  <%= form.submit "送信"%>
+<% end %>
