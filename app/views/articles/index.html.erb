@@ -5,8 +5,8 @@
   <div>
     <%= article.date %>
     <%= article.article %>
-    <% unless article.items_id.nil? %>
-      <%= article.items.item_name %>
+    <% unless article.item_id.nil? %>
+      <%= article.item.item_name %>
     <% end %>
   </div>
 <% end %>

@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   def index
+    # binding.pry
     @articles = Article.all
 
   end
@@ -28,6 +29,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:date, :article, :items_id)
+    params.require(:article).permit(:date, :article, :item_id)
   end
 end

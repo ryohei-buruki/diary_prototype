@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_30_142156) do
+ActiveRecord::Schema.define(version: 2019_05_03_094258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(version: 2019_04_30_142156) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.datetime "date" #ちゃんとdiaryに紐付けるなら不要
+    t.datetime "date"
     t.text "article"
     t.bigint "account_id"
     t.bigint "diary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "items_id"
+    t.bigint "item_id"
     t.index ["account_id"], name: "index_articles_on_account_id"
     t.index ["diary_id"], name: "index_articles_on_diary_id"
-    t.index ["items_id"], name: "index_articles_on_items_id"
+    t.index ["item_id"], name: "index_articles_on_item_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_04_30_142156) do
 
   add_foreign_key "articles", "accounts"
   add_foreign_key "articles", "diaries"
+  add_foreign_key "articles", "items"
   add_foreign_key "comments", "accounts"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments_of_comments", "accounts"
