@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def new
@@ -17,6 +18,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:account).permit(:item_name)
+    params.require(:item).permit(:item_name)
   end
 end

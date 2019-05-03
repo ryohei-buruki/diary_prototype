@@ -1,7 +1,6 @@
 class AccountsController < ApplicationController
   def index
     @accounts = Account.all
-Ωœœ
   end
 
   def new

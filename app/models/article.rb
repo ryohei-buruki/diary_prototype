@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
-  belongs_to :accounts
-  belongs_to :accounts
+  belongs_to :account, optional: true
+  belongs_to :diary, optional: true
+  belongs_to :item
 end

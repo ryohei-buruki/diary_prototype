@@ -1,0 +1,10 @@
+<%= form_with(model:@article, local:true)do |form| %>
+  <%= form.label '項目' %>
+  <%= form.collection_select :items_id, Item.all, :id, :item_name %>
+  <%= form.label :date %>
+  <%= form.date_field :date %>
+  <%= form.label :article %>
+  <%= form.text_area :article %>
+
+  <%= form.submit "送信"%>
+<% end %>

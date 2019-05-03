@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_04_30_142156) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.datetime "date"
+    t.datetime "date" #ちゃんとdiaryに紐付けるなら不要
     t.text "article"
     t.bigint "account_id"
     t.bigint "diary_id"
