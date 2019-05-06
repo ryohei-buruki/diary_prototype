@@ -1,0 +1,16 @@
+<%= form_with(model:@diary, local:true)do |form| %>
+  <%= form.label '日付' %>
+  <%= form.date_field :date %>
+
+  <%= form.fields(model: Article.new)do |article| %>
+    <%= article.label '項目' %>
+    <%= article.collection_select :item_id, Item.all, :id, :item_name %>
+    <%= article.label :date %>
+    <%= article.date_field :date %>
+    <%= article.label :article %>
+    <%= article.text_area :article %>
+  <% end %>
+
+
+  <%= form.submit "送信" %>
+<% end %>

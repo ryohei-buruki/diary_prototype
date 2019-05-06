@@ -1,4 +1,5 @@
 class Diary < ApplicationRecord
   has_many :articles
-  belongs_to :accounts
+  accepts_nested_attributes_for :articles
+  belongs_to :accounts, optional: true
 end
