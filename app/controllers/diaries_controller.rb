@@ -10,12 +10,6 @@ class DiariesController < ApplicationController
   end
 
   def create
-    puts '_______________'
-    puts params
-    puts Article.count
-    puts Diary.count
-    puts '_______________'
-    binding.pry
     Diary.create(diary_params)
     redirect_to diaries_path
   end

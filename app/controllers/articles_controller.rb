@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
   def index
-    # binding.pry
     @articles = Article.all
 
   end
@@ -10,11 +9,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    puts '_______________'
-    puts '_______________'
-    puts 'articleのcreate'
-    puts '_______________'
-    puts '_______________'
     Article.create(article_params)
     redirect_to articles_path
   end
