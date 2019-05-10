@@ -3,6 +3,16 @@
 
 <% @diaries.each do |diary| %>
   <div>
-    <%= diary.date %>
+    <div>
+      <%= diary.date %>
+    </div> 
+    <% diary.articles.each do |article| %>
+      <div>
+        <%= article.item.item_name %>
+      </div>
+      <div>
+        <%= article.article %>
+      </div>
+    <% end %>
   </div>
 <% end %>

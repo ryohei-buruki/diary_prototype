@@ -1,15 +1,22 @@
 <%= form_with(model:@diary, local:true)do |form| %>
-  <%= form.label '日付' %>
-  <%= form.date_field :date %>
+  <div>
+    <%= form.label 'タイトル' %>
+    <%= form.text_area :title %>
+    <%= form.label '日付' %>
+    <%= form.date_field :date %>
+  </div>
 
-  <%= form.fields(model: Article.new)do |article| %>
-    <%= article.label '項目' %>
-    <%= article.collection_select :item_id, Item.all, :id, :item_name %>
-    <%= article.label :date %>
-    <%= article.date_field :date %>
-    <%= article.label :article %>
-    <%= article.text_area :article %>
-  <% end %>
+  <div>
+    <%= form.nested_fields_for :articles, wrapper_tag: :div do |article| %>
+      <%= article.label '項目' %>
+      <%= article.collection_select :item_id, Item.all, :id, :item_name %>
+      <%= article.label :article %>
+      <%= article.text_area :article %>
+      <%= article.remove_nested_fields_link "項目を減らす" %>
+    <% end %>
+  </div>
+
+  <%= form.add_nested_fields_link :articles, "項目を増やす", class: 'btn btn_primary' %>
 
 
   <%= form.submit "送信" %>

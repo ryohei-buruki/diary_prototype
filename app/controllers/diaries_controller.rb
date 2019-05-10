@@ -1,7 +1,6 @@
 class DiariesController < ApplicationController
   def index
-    # binding.pry
-    @diaries = Diary.all
+    @diaries = Diary.all.includes(:articles)
   end
 
   def new
@@ -29,6 +28,6 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:date, articles_attributes: [:item_id, :date, :article])
+    params.require(:diary).permit(:date, :title, articles_attributes: [:id, :item_id, :date, :article, :_destrpy])
   end
 end
