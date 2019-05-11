@@ -1,11 +1,13 @@
 <h1>comments#index</h1>
 
-<% @comments.each do |comment| %>
-  <div>
+ <% unless @comments == nil %>
+  <% @comments.each do |comment| %>
     <div>
-      <p>comment：
-        <%= comment.comment %>
-      </p>
+      <div>
+        <p>comment：
+          <%= comment.comment %>
+        </p>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

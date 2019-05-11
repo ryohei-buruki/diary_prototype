@@ -16,4 +16,8 @@
       <%= form.submit '送信する' %>
     <% end %>
   <% end %>
+
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { article: @articles } %>
+  </div>
 </div>

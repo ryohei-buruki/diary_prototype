@@ -11,9 +11,13 @@ class CommentsController < ApplicationController
     params[:comment][:article_id] = params[:comment][:article_id].to_i
     article = Article.find(params[:comment][:article_id])
     comment = article.comments.build(comment_params)
-    comment.save
-    redirect_to diaries_path
-    # redirect_to comments_path
+    respond_to do |format|
+      if comment.save
+        format.js{ render :index }
+      else
+        format.html{redirect_to diary_path(article.diary_id)}
+      end
+    end
   end
 
   def show

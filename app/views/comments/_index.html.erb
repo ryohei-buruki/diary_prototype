@@ -1,0 +1,17 @@
+<h1>comments#index</h1>
+ぐあぁ
+
+<% @articles.each do |article| %>
+  <% comments = article.comments %>
+   <% unless comments == nil %>
+    <% comments.each do |comment| %>
+      <div>
+        <div>
+          <p>comment：
+            <%= comment.comment %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
