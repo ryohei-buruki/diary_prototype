@@ -8,9 +8,12 @@
     <p>内容：
       <%= article.article %>
     </p>
-  <% end %>
-</div>
 
-<div>
-  
+    <%= form_with(model:Comment.new) do |form| %>
+      <%= form.label 'コメント' %>
+      <%= form.text_area :comment %>
+      <%= form.hidden_field :article_id, :value => article.id %>
+      <%= form.submit '送信する' %>
+    <% end %>
+  <% end %>
 </div>

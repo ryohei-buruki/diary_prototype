@@ -1,0 +1,11 @@
+<h1>comments#index</h1>
+
+<% @comments.each do |comment| %>
+  <div>
+    <div>
+      <p>comment：
+        <%= comment.comment %>
+      </p>
+    </div>
+  </div>
+<% end %>
