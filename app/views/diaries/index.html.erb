@@ -4,15 +4,24 @@
 <% @diaries.each do |diary| %>
   <div>
     <div>
-      <%= diary.date %>
-    </div> 
+      <p>投稿した日付：
+        <%= diary.date %>
+      </p>
+    </div>
     <% diary.articles.each do |article| %>
       <div>
-        <%= article.item.item_name %>
+        <p>項目名：
+          <%= article.item.item_name %>
+        </p>
       </div>
       <div>
-        <%= article.article %>
+        <p>内容：
+          <%= article.article %>
+        </p>
       </div>
     <% end %>
+    <%= link_to '詳細へ', diary_path(diary.id) %>
   </div>
 <% end %>
+<br>
+<%= link_to '新規投稿', new_diary_path %>

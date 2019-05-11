@@ -1,0 +1,16 @@
+<h1>diary#show</h1>
+<div>
+  <%= @diary.title %>
+  <% @diary.articles.each do |article| %>
+    <p>項目名：
+      <%= article.item.item_name %>
+    </p>
+    <p>内容：
+      <%= article.article %>
+    </p>
+  <% end %>
+</div>
+
+<div>
+  
+</div>

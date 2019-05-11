@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_134949) do
+ActiveRecord::Schema.define(version: 2019_05_11_003710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,19 +43,9 @@ ActiveRecord::Schema.define(version: 2019_05_08_134949) do
     t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_commnet_id"
     t.index ["account_id"], name: "index_comments_on_account_id"
     t.index ["article_id"], name: "index_comments_on_article_id"
-  end
-
-  create_table "comments_of_comments", force: :cascade do |t|
-    t.datetime "date"
-    t.text "comment"
-    t.bigint "account_id"
-    t.bigint "comment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_comments_of_comments_on_account_id"
-    t.index ["comment_id"], name: "index_comments_of_comments_on_comment_id"
   end
 
   create_table "diaries", force: :cascade do |t|
@@ -78,7 +68,5 @@ ActiveRecord::Schema.define(version: 2019_05_08_134949) do
   add_foreign_key "articles", "items"
   add_foreign_key "comments", "accounts"
   add_foreign_key "comments", "articles"
-  add_foreign_key "comments_of_comments", "accounts"
-  add_foreign_key "comments_of_comments", "comments"
   add_foreign_key "diaries", "accounts"
 end
