@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     article = Article.find(params[:comment][:article_id])
     comment = article.comments.build(comment_params)
     if comment.save
-      redirect_to diaries_path
+      redirect_back(fallback_location: root_path)
     else
       redirect_to root_path
     end
