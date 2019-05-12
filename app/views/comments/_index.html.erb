@@ -5,12 +5,13 @@
   <% comments = article.comments %>
    <% unless comments == nil %>
     <% comments.each do |comment| %>
-      <div>
+      <div every_article_comment>
         <div>
           <p>comment：
             <%= comment.comment %>
           </p>
         </div>
+
       </div>
     <% end %>
   <% end %>

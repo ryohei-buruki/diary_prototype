@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def index
+    puts 'a'
     @comments = Comment.all
   end
 
@@ -11,16 +12,22 @@ class CommentsController < ApplicationController
     params[:comment][:article_id] = params[:comment][:article_id].to_i
     article = Article.find(params[:comment][:article_id])
     comment = article.comments.build(comment_params)
-    respond_to do |format|
-      if comment.save
-        format.js{ render :index }
-      else
-        format.html{redirect_to diary_path(article.diary_id)}
-      end
+    if comment.save
+      redirect_to diaries_path
+    else
+      redirect_to root_path
     end
+    # respond_to do |format|
+    #   if comment.save
+    #     format.js{ render :index }
+    #   else
+    #     format.html{redirect_to diary_path(article.diary_id)}
+    #   end
+    # end
   end
 
   def show
+    binding.pry
   end
 
   def edit
@@ -30,6 +37,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def show_in_diary
+    puts '呼ばれてる'
   end
 
   private

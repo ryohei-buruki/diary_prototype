@@ -1,23 +1,35 @@
 <h1>diary#show</h1>
-<div>
-  <%= @diary.title %>
-  <% @diary.articles.each do |article| %>
-    <p>項目名：
-      <%= article.item.item_name %>
-    </p>
-    <p>内容：
-      <%= article.article %>
-    </p>
+<div class='content'>
+  <div id = 'diary_title'>
+    <%= @diary.title %>
+  </div>
+  <div class = 'articles'>
+    <% @diary.articles.each do |article| %>
+      <div class = article'>
+        <p>項目名：
+          <%= article.item.item_name %>
+        </p>
+        <p>内容：
+          <%= article.article %>
+        </p>
 
-    <%= form_with(model:Comment.new) do |form| %>
-      <%= form.label 'コメント' %>
-      <%= form.text_area :comment %>
-      <%= form.hidden_field :article_id, :value => article.id %>
-      <%= form.submit '送信する' %>
+        <%= form_with(model:Comment.new) do |form| %>
+          <%= form.label 'コメント' %>
+          <%= form.text_area :comment %>
+          <%= form.hidden_field :article_id, :value => article.id %>
+          <%= form.submit '送信する' %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 
-  <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { article: @articles } %>
+  <div class = 'comment_area'>
+    <% @articles.each do |article| %>
+      <div comment_of_the_article>
+        <% article.comments.each do |comment| %>
+          <p><%= comment.comment %></p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

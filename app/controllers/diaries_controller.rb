@@ -15,7 +15,8 @@ class DiariesController < ApplicationController
 
   def show
     @diary = Diary.find(params[:id])
-    @articles = @diary.articles
+    @articles = @diary.articles.includes(:comments)
+    # redirect_to :controller => 'comments', :action => 'show_in_diary'
   end
 
   def edit
